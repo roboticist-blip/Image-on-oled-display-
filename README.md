@@ -21,13 +21,13 @@ The captured JPEG is converted to `RGB888`, downscaled, and then displayed as a 
   - Push button (for image capture trigger)
 
 ## 🔧 Connections
-| ESP32 XIAO | OLED (SSD1306) | Camera |
-|------------|----------------|--------|
-| 3V3        | VCC            | 3V3    |
-| GND        | GND            | GND    |
-| SDA        | SDA            | SDA    |
-| SCL        | SCL            | SCL    |
-| GPIOxx     | Button         | OV2640 Pins |
+| ESP32-CAM  | OLED (SSD1306) |
+|------------|----------------|
+| 3V3        | VCC            | 
+| GND        | GND            | 
+| SDA        | SDA            | 
+| SCL        | SCL            | 
+| GPIOxx     | Button         | 
 
 ## 🛠️ Code Workflow
   - Button press triggers capture.
@@ -40,7 +40,7 @@ The captured JPEG is converted to `RGB888`, downscaled, and then displayed as a 
 
 📷 Demo
 Workflow Diagram:
-![Workflow](docs/esp32xiao_oled_block_diagram.png)
+![Workflow](docs/workflow.png)
 
 🚀 How to Run
 1. Copy the code.
