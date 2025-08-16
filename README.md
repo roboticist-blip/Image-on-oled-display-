@@ -20,7 +20,7 @@ The captured JPEG is converted to `RGB888`, downscaled, and then displayed as a 
   - SSD1306 OLED Display (128×64, I2C)
   - Push button (for image capture trigger)
 
-![Example](docs/IMG1.jpg)
+![Example](docs/IMG1.png)
 
 ## 🔧 Connections
 | ESP32-CAM  | OLED (SSD1306) |
@@ -47,6 +47,6 @@ Workflow Diagram:
 3. press the switch- It will capture the image.
 4. And after processing, It will display the image.
 📷 Demo
-   ![Demo](docs/IMG2.jpg)
+   ![Demo](docs/IMG2.png)
 
 ⚠️ NOTE: OLED will not show “clear photos,” but a monochrome silhouette/outline of what the camera captures. That’s the limitation of 128×64 SSD1306.
