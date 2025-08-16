@@ -47,3 +47,6 @@ Workflow Diagram:
 2. Upload it on your board ( Don't forget to uncomment your board. )
 3. press the switch- It will capture the image.
 4. And after processing, It will display the image.
+
+
+⚠️ NOTE: OLED will not show “clear photos,” but a monochrome silhouette/outline of what the camera captures. That’s the limitation of 128×64 SSD1306.
