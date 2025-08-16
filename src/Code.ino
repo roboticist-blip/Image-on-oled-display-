@@ -4,15 +4,15 @@
 #include <Adafruit_SSD1306.h>
 #include "esp_camera.h"
 
-// ================= OLED CONFIG =================
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
-#define OLED_RESET    -1  // Reset pin not used
+#define OLED_RESET    -1 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-// ===================
+
 // Select camera model
 // ===================
+
 //#define CAMERA_MODEL_WROVER_KIT // Has PSRAM
 #define CAMERA_MODEL_ESP_EYE  // Has PSRAM
 //#define CAMERA_MODEL_ESP32S3_EYE // Has PSRAM
@@ -25,6 +25,7 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 //#define CAMERA_MODEL_AI_THINKER // Has PSRAM
 //#define CAMERA_MODEL_TTGO_T_JOURNAL // No PSRAM
 //#define CAMERA_MODEL_XIAO_ESP32S3 // Has PSRAM
+
 // ** Espressif Internal Boards **
 //#define CAMERA_MODEL_ESP32_CAM_BOARD
 //#define CAMERA_MODEL_ESP32S2_CAM_BOARD
@@ -33,12 +34,9 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 //#define CAMERA_MODEL_DFRobot_Romeo_ESP32S3 // Has PSRAM
 #include "camera_pins.h"
 
-#endif  // BOARD_CONFIG_H
-
 // ================= BUTTON CONFIG =================
 #define BUTTON_PIN  2  // Set to your button GPIO
 
-// ================= FUNCTIONS =================
 bool initCamera() {
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
@@ -87,17 +85,15 @@ void captureAndDisplay() {
     return;
   }
 
-  // Create a 128x64 buffer
   display.clearDisplay();
   int scaleX = fb->width / SCREEN_WIDTH;
   int scaleY = fb->height / SCREEN_HEIGHT;
 
   for (int y = 0; y < SCREEN_HEIGHT; y++) {
     for (int x = 0; x < SCREEN_WIDTH; x++) {
-      // Sample a pixel from camera buffer
       int srcX = x * scaleX;
       int srcY = y * scaleY;
-      int index = (srcY * fb->width + srcX) * 2; // YUV422 (approx)
+      int index = (srcY * fb->width + srcX) * 2;
 
       if (index < fb->len) {
         uint8_t pixel = fb->buf[index];
@@ -141,6 +137,6 @@ void loop() {
   if (digitalRead(BUTTON_PIN) == LOW) {
     Serial.println("Button Pressed - Capturing Image...");
     captureAndDisplay();
-    delay(500); // debounce
+    delay(500); 
   }
 }
